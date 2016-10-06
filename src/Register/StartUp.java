@@ -18,18 +18,23 @@ public class StartUp {
         // TODO code application logic here
         
         DataStore db = new ArrayDatabase();
-        
+        //Formatters
+//        FormatterManager fm = new AdvancedFormatter();
+        FormatterManager fm = new SimpleFormatter();
+        //outputters
+        ReceiptOutputManager rom = new JOptionPaneReceiptOutput();
+//        ReceiptOutputManager rom = new ConsoleReceiptOutput();
         
         Register register = new Register();
         register.startNewSale("C100", db);
         register.AddProductToSale("1", 3);
         register.AddProductToSale("2", 1);
-        register.endSale(new ConsoleReceiptOutput());
+        register.endSale(fm, rom);
         
         register.startNewSale("C101", db);
         register.AddProductToSale("3", 2);
         register.AddProductToSale("1", 30);
-        register.endSale(new ConsoleReceiptOutput());
+        register.endSale(fm, rom);
         
     }
     

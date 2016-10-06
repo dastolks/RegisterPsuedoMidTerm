@@ -7,13 +7,10 @@ package Register;
 
 /**
  *
- * @author aschindler1
+ * @author Alec
  */
-public class ConsoleReceiptOutput implements ReceiptOutputManager {
-      
-    @Override
-    public final void outputFinalResults(String s){
-        System.out.println(s);
-    }
+public interface FormatterManager {
+
+    public abstract String formatRegisterText(Receipt r, ReceiptOutputManager rom);
     
 }

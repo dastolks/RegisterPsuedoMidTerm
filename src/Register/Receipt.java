@@ -30,28 +30,40 @@ public class Receipt {
         items = temp;
         temp = null;
     }
-    public final void endSale(ReceiptOutputManager rom){
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public LineItem[] getItems() {
+        return items;
+    }
+    
+    public final LineItem getLineItemFromPoint(int i){
+        return items[i];      
+    }
+    public final void endSale(FormatterManager fm, ReceiptOutputManager rom){
         StringBuilder sb = new StringBuilder(); //total string built for the output.
-        double basePriceTotal = 0;  // base price added up
-        double discountPriceTotal = 0;  // discount/total price added up
-        String messagePromptAppend; //string used for formatting
-        
-        messagePromptAppend = String.format("%s %s %s %s \n", rom.PRODUCT, rom.AMOUNT, rom.BASE_PRICE, rom.SALE_PRICE);
-        sb.append("Thank you " + customer.getFirstName() + " " + customer.getLastName() + " for your purchase of:").append("\n");
-        
-        messagePromptAppend = String.format("%-20s %-7s %-20s %-20s \n", rom.PRODUCT, rom.AMOUNT, rom.BASE_PRICE, rom.SALE_PRICE);
-        sb.append(messagePromptAppend);
-        for(int i = 0; i < items.length; i++){
-//            sb.append("the product: " + items[i].getProduct().getName() + " Amount: " + items[i].getQuanity() + 
-//                    " Base cost: " + items[i].getBaseAmount() + " Sale cost: " + items[i].getDiscountAmount()).append("\n");
-            messagePromptAppend = String.format("%-20s %-7s %18s $ %18s $ \n", items[i].getProduct().getName(), items[i].getQuanity(), items[i].getBaseAmount(), items[i].getDiscountAmount());
-            basePriceTotal += items[i].getBaseAmount();
-            discountPriceTotal += items[i].getDiscountAmount();
-            sb.append(messagePromptAppend);
-        }
-        messagePromptAppend = String.format("%-15s %20s$ \n%-15s %20s$", "Base Cost:", basePriceTotal, "Discount Total:", discountPriceTotal);
-        sb.append(messagePromptAppend);
-        System.out.println(sb.toString());
+//        double basePriceTotal = 0;  // base price added up
+//        double discountPriceTotal = 0;  // discount/total price added up
+//        String messagePromptAppend; //string used for formatting
+//        
+//        messagePromptAppend = String.format("%s %s %s %s \n %s \n", rom.THANK_YOU, rom.STORE_NAME, customer.getFirstName(),customer.getLastName(), rom.RECEIPT);
+//        sb.append(messagePromptAppend);
+//        
+//        messagePromptAppend = String.format("%-20s %-7s %-20s %-20s \n", rom.PRODUCT, rom.AMOUNT, rom.BASE_PRICE, rom.SALE_PRICE);
+//        sb.append(messagePromptAppend);
+//        for(int i = 0; i < items.length; i++){
+//            messagePromptAppend = String.format("%-20s %-7s %18s $ %18s $ \n", items[i].getProduct().getName(), items[i].getQuanity(), items[i].getBaseAmount(), items[i].getDiscountAmount());
+//            basePriceTotal += items[i].getBaseAmount();
+//            discountPriceTotal += items[i].getDiscountAmount();
+//            sb.append(messagePromptAppend);
+//        }
+//        messagePromptAppend = String.format("%-15s %20s$ \n%-15s %20s$ \n \n", rom.BASE_PRICE_TOTAL, basePriceTotal, rom.SALE_PRICE_TOTAL, discountPriceTotal);
+//        sb.append(messagePromptAppend);
+//        
+        sb.append(fm.formatRegisterText(this, rom));
+        rom.outputFinalResults(sb.toString());
         
         
     }    

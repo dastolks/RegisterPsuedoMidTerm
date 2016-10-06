@@ -24,8 +24,8 @@ public class Register {
         receipt.AddProductToSale(s, i);
     }
 
-    public final void endSale(ReceiptOutputManager rom) {
-        receipt.endSale(rom);
+    public final void endSale(FormatterManager fm, ReceiptOutputManager rom) {
+        receipt.endSale(fm, rom);
     }
     
 }

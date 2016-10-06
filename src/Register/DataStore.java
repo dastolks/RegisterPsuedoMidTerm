@@ -11,6 +11,6 @@ package Register;
  */
 public interface DataStore {
 
-    Customer findCustomerById(String custID);
-    Product findProductById(String prodID);
+    public abstract Customer findCustomerById(String custID);
+    public abstract Product findProductById(String prodID);
 }

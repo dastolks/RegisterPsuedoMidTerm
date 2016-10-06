@@ -17,15 +17,15 @@ public class NoDiscount implements DiscountProduct {
         discount = ZERO_VALUE;
     }
     @Override
-    public double getDiscount(){            
+    public final double getDiscount(){            
         return ZERO_VALUE;
     }
     @Override
-    public void setDiscount(double d) {
+    public final void setDiscount(double d) {
         discount = ZERO_VALUE;
     }
     @Override
-    public double getCostWithDiscount(double price, double qty) {
+    public final double getCostWithDiscount(double price, double qty) {
         return price * qty;
     }
     

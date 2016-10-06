@@ -15,7 +15,7 @@ public class JOptionPaneReceiptOutput implements ReceiptOutputManager {
     
     JOptionPane jop = new JOptionPane();
     @Override
-    public void outputFinalResults(String s) {
+    public final void outputFinalResults(String s) {
         JOptionPane.showMessageDialog(jop, s);
     }
     

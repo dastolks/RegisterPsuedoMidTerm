@@ -18,26 +18,26 @@ public class LineItem {
         this.quantity = quantity;
     }
 
-    public Product getProduct() {
+    public final Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public final void setProduct(Product product) {
         this.product = product;
     }
 
-    public int getQuanity() {
+    public final int getQuanity() {
         return quantity;
     }
 
-    public void setQuanity(int quanity) {
+    public final void setQuanity(int quanity) {
         this.quantity = quanity;
     }
     
-    public double getBaseAmount(){
+    public final double getBaseAmount(){
         return product.getCost() * quantity; 
     }
-    public double getDiscountAmount(){
+    public final double getDiscountAmount(){
         //add validation
         return product.getDiscount().getCostWithDiscount(product.getCost(),quantity);
     }

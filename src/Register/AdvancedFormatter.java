@@ -18,7 +18,7 @@ public class AdvancedFormatter implements FormatterManager{
         double discountPriceTotal = 0;  // discount/total price added up
         String messagePromptAppend; //string used for formatting
         
-        messagePromptAppend = String.format("%s %s %s %s \n %s \n", rom.THANK_YOU, rom.STORE_NAME, r.getCustomer().getFirstName(), r.getCustomer().getLastName(), rom.RECEIPT);
+        messagePromptAppend = String.format("%s %s %s %s \n%s \n", rom.THANK_YOU, rom.STORE_NAME, r.getCustomer().getFirstName(), r.getCustomer().getLastName(), rom.RECEIPT);
         sb.append(messagePromptAppend);
         
         messagePromptAppend = String.format("%-20s %-7s %-20s %-20s \n", rom.PRODUCT, rom.AMOUNT, rom.BASE_PRICE, rom.SALE_PRICE);
@@ -31,7 +31,7 @@ public class AdvancedFormatter implements FormatterManager{
         }
         messagePromptAppend = String.format("%-15s %20s$ \n%-15s %20s$ \n%-15s %20s$ \n \n", rom.BASE_PRICE_TOTAL, basePriceTotal, rom.AMOUNT_SAVED, (basePriceTotal-discountPriceTotal), rom.SALE_PRICE_TOTAL, discountPriceTotal);
         sb.append(messagePromptAppend);
-        messagePromptAppend = String.format("%-15s %-20s$ \n", rom.CUSTOMER_ID ,r.getCustomer().getCustomerNo());
+        messagePromptAppend = String.format("%-15s %-20s \n", rom.CUSTOMER_ID ,r.getCustomer().getCustomerNo());
         sb.append(messagePromptAppend);
         
         return sb.toString();

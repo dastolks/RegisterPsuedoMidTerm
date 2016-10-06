@@ -17,15 +17,15 @@ public class BuyAmountGetFreeDiscount implements DiscountProduct {
     }
     
     @Override
-    public double getDiscount() {
+    public final double getDiscount() {
         return discount;
     }
     @Override
-    public void setDiscount(double discount) {
+    public final void setDiscount(double discount) {
         this.discount = discount;
     }   
     @Override
-    public double getCostWithDiscount(double price, double qty) {
+    public final double getCostWithDiscount(double price, double qty) {
         double totalCost = 0;
         double amountNeed = 0;
         for(int i = 0; i < qty; i++){

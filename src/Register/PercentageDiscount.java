@@ -16,17 +16,17 @@ public class PercentageDiscount implements DiscountProduct {
         discount = d;
     }
     @Override
-    public double getDiscount(){            
+    public final double getDiscount(){            
         return discount;
     }
 
     @Override
-    public void setDiscount(double d) {
+    public final void setDiscount(double d) {
         discount = d;
     }
 
     @Override
-    public double getCostWithDiscount(double price, double qty) {
+    public final double getCostWithDiscount(double price, double qty) {
         return price*qty - price*qty*discount; 
     }
     

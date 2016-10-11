@@ -13,6 +13,9 @@ public class BuyAmountGetFreeDiscount implements DiscountProduct {
     private double discount; 
     
     public BuyAmountGetFreeDiscount(double d){
+        if(d <= 0){
+            d = 1;      
+        }
         discount = d;
     }
     
